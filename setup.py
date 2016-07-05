@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import setuptools
+from unnamed_args import __version__
 
 
 setuptools.setup(
-    version='0.0.1',
+    version=__version__,
     name='flake8-unnamed-args',
     description='unnamed args flake8 extension',
     keywords='flake8 arg kwargs',
