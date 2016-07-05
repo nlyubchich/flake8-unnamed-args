@@ -3,10 +3,10 @@ __version__ = '0.0.1'
 
 
 class UnnamedArgsChecker(object):
-    """Mutable default argument checker.
+    """Unnamed arguments on function call checker.
 
-    Flake8 extension that alerts when a mutable type is used
-    as an argument's default value.
+    Flake8 extension that alerts when functions are called
+    without named arguments (such as variables or kwargs)
     """
     name = 'flake-unnamed-args'
     version = __version__
@@ -17,7 +17,6 @@ class UnnamedArgsChecker(object):
         self.tree = tree
 
     def run(self):
-        """Check that no functions are a single if statement"""
         for stmt in ast.walk(self.tree):
             if isinstance(stmt, ast.Call):
                 not_named_args = [arg for arg in stmt.args
